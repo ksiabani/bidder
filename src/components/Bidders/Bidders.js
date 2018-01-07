@@ -1,21 +1,19 @@
-import React from 'react'
-import BiddersAPI from '../../data'
-import { Link } from 'react-router-dom'
+import React from 'react';
+// import api from '../../api';
+// import {Link} from 'react-router-dom';
+import BidderList from '../BidderList/BidderList';
+import './Bidders.css';
 
-// The FullRoster iterates over all of the players and creates
-// a link to their profile page.
 const Bidders = () => (
-    <div>
-        <ul>
-            {
-                BiddersAPI.all().map(p => (
-                    <li key={p.number}>
-                        <Link to={`/roster/${p.number}`}>{p.name}</Link>
-                    </li>
-                ))
-            }
-        </ul>
+    <div className="bidders">
+        <i className="icon design_code x3 bidders__icon"/>
+        <h6>View your bidders</h6>
+        <span className="bidders__hr"></span>
+        <div className="bidders__cols">
+            <BidderList name={"1. Submitted"} state={"CREATED"}/>
+            <BidderList name={"2. Live"} state={"LIVE"}/>
+        </div>
     </div>
-)
+);
 
-export default Bidders
+export default Bidders;
