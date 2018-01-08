@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from '../Loader/Loader';
 import './BidderForm.css';
 
 const BidderForm = (props) => {
@@ -31,8 +32,9 @@ const BidderForm = (props) => {
                 type="submit"
                 // disabled={saving}
                 // value={saving ? 'Saving...' : 'Save'}
-                className="button alert"
-                onClick={props.onSave}>Save
+                className="button alert bidder-form__button"
+                onClick={props.onSave}>
+                {props.isSaving ? <Loader /> : 'Save'}
             </button>
         </form>
     );

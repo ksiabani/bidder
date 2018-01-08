@@ -7,9 +7,18 @@ class EditBidder extends React.Component {
     constructor(props) {
         super(props);
         // https://stackoverflow.com/questions/42893669/how-do-i-pass-props-in-react-router-v4
-        this.state = {bidder: props.location.bidder};
+        this.state = {
+            bidder: props.location.bidder,
+            isSaving: false
+        };
         this.updateBidderState = this.updateBidderState.bind(this);
         this.saveBidder = this.saveBidder.bind(this);
+    }
+
+    componentWillMount() {
+        if(!this.state.bidder){
+            this.props.history.push('/bidders');
+        }
     }
 
     updateBidderState(event) {
@@ -21,36 +30,43 @@ class EditBidder extends React.Component {
 
     saveBidder(event) {
         event.preventDefault();
+        this.setState({isSaving: true});
         const formData = new FormData();
         formData.append('name', this.state.name);
         formData.append('endpoint', this.state.endpoint);
         api.put(this.props.match.params.id, formData)
             .then(json => {
-                console.log(json);
+                // console.log(json);
+                this.setState({isSaving: false});
                 this.props.history.push('/bidders')
             })
             .catch(error => error);
     }
 
     render() {
-        const {bidder} = this.state;
-        return (
-            <div className="bidders">
-                <i className="icon design_code x3 bidders__icon"/>
-                <div className="bidders__breadcrumbs">
-                    <Link to="/bidders">View your bidders</Link>
-                    <i className="icon arrows-1_minimal-right"/>
-                    <span>{bidder.name}</span>
+        const {bidder, isSaving} = this.state;
+        if(this.state.bidder) {
+            return (
+                <div className="bidders">
+                    <i className="icon design_code x3 bidders__icon"/>
+                    <div className="bidders__breadcrumbs">
+                        <Link to="/bidders">View your bidders</Link>
+                        <i className="icon arrows-1_minimal-right"/>
+                        <span>{bidder.name}</span>
+                    </div>
+                    <BidderForm
+                        onChange={this.updateBidderState}
+                        onSave={this.saveBidder}
+                        bidder={bidder}
+                        // errors={this.state.errors}
+                        isSaving={isSaving}
+                    />
                 </div>
-                <BidderForm
-                    onChange={this.updateBidderState}
-                    onSave={this.saveBidder}
-                    bidder={bidder}
-                    // errors={this.state.errors}
-                    // saving={this.state.saving}
-                />
-            </div>
-        );
+            );
+        }
+        else {
+            return null;
+        }
     }
 }
 
