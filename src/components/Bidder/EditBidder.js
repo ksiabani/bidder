@@ -1,78 +1,55 @@
 import React, {PropTypes} from 'react';
+import {Link} from 'react-router-dom';
 import BidderForm from './BidderForm';
 import api from '../../api';
 
-export class EditBidder extends React.Component {
+class EditBidder extends React.Component {
     constructor(props) {
         super(props);
-        let bidderId = props.match.params.id;
-        let bidder = getBidderById(api.all(), bidderId);
-        this.state = {
-            bidder: bidder,
-            // errors: {},
-            // saving: false
-        };
+        // https://stackoverflow.com/questions/42893669/how-do-i-pass-props-in-react-router-v4
+        this.state = {bidder: props.location.bidder};
         this.updateBidderState = this.updateBidderState.bind(this);
         this.saveBidder = this.saveBidder.bind(this);
     }
 
     updateBidderState(event) {
         const field = event.target.name;
-        let bidder = Object.assign({}, this.state.bidder);
+        let bidder = this.state.bidder;
         bidder[field] = event.target.value;
         return this.setState({bidder: bidder});
     }
 
-    // bidderFormIsValid() {
-    //     let formIsValid = true;
-    //     let errors = {};
-    //
-    //     if (this.state.bidder.name.length < 5) {
-    //         errors.title = 'Title must be at least 5 characters';
-    //         formIsValid = false;
-    //     }
-    //
-    //     this.setState({errors: errors});
-    //     return formIsValid;
-    // }
-
     saveBidder(event) {
         event.preventDefault();
-
-        // if (!this.bidderFormIsValid()) {
-        //     return;
-        // }
-
-        // this.setState({saving: true});
-
-
-        // Saving with fetch
         const formData = new FormData();
         formData.append('name', this.state.name);
         formData.append('endpoint', this.state.endpoint);
-
-        fetch(`https://private-anon-57b3da0554-biddermanagement.apiary-mock.com/bidders/${this.props.match.params.id}`, {
-            method: 'PUT',
-            body: formData
-        })
-            .then(response => response.json())
+        api.put(this.props.match.params.id, formData)
             .then(json => {
                 console.log(json);
                 this.props.history.push('/bidders')
             })
             .catch(error => error);
-
     }
 
     render() {
+        const {bidder} = this.state;
         return (
-            <BidderForm
-                onChange={this.updateBidderState}
-                onSave={this.saveBidder}
-                bidder={this.state.bidder}
-                errors={this.state.errors}
-                saving={this.state.saving}
-            />
+            <div className="bidders">
+                <i className="icon design_code x3 bidders__icon"/>
+                <div className="bidders__breadcrumbs">
+                    <Link to="/bidders">View your bidders</Link>
+                    <i className="icon arrows-1_minimal-right"/>
+                    <span>{bidder.name}</span>
+                </div>
+                <BidderForm
+                    onChange={this.updateBidderState}
+                    onSave={this.saveBidder}
+                    bidder={bidder}
+                    // errors={this.state.errors}
+                    // saving={this.state.saving}
+                />
+            </div>
         );
     }
 }
@@ -80,12 +57,5 @@ export class EditBidder extends React.Component {
 EditBidder.propTypes = {
     // bidder: PropTypes.object.isRequired,
 };
-
-
-function getBidderById(bidders, id) {
-    const bidder = bidders.filter(bidder => bidder.id == id);
-    if (bidder.length) return bidder[0]; //since filter return an array, have to grab the first.
-    return null;
-}
 
 export default EditBidder;

@@ -1,5 +1,6 @@
 // A simple data API that will be used to get the data for our
 // components.
+const URL = 'https://private-anon-57b3da0554-biddermanagement.apiary-mock.com/bidders';
 const biddersAPI = {
     bidders: [
         {
@@ -21,10 +22,28 @@ const biddersAPI = {
             "state": "LIVE"
         }
     ],
-    all: function() { return this.bidders},
-    get: function(id) {
-        const isBidder = b => b.id === id;
-        return this.bidders.find(isBidder);
+    // all: function () {
+    //     return this.bidders
+    // },
+    // get: function (id) {
+    //     const isBidder = b => b.id === id;
+    //     return this.bidders.find(isBidder);
+    // },
+    get: function (id) {
+        return fetch(`${URL}/${id}`, {
+            method: 'GET'
+        }).then(response => response.json());
+    },
+    all: function () {
+        return fetch(URL, {
+            method: 'GET'
+        }).then(response => response.json());
+    },
+    put: function (id, formData) {
+        return fetch(`${URL}/${id}`, {
+            method: 'PUT',
+            body: formData
+        }).then(response => response.json());
     }
 };
 

@@ -2,8 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './Bidder.css';
 
-const Bidder = (props) => (
-    <Link to={`/bidders/${props.id}/edit`} className="bidder">
+const Bidder = props => (
+    <Link to={{pathname: `/bidders/${props.id}/edit`, bidder: props.bidder}} className="bidder">
         <div className="bidder__outline">
             <div className="bidder__outline__details">
                 <div className="bidder__name">{props.name}</div>
