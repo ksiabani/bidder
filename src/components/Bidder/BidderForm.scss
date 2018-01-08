@@ -1,10 +1,17 @@
 .bidder-form {
-  display: flex;
   width: 100%;
-  justify-content: flex-start;
+  text-align: center;
+
+  &__input-group {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
 
   &__input {
     width: 33%;
     margin: 24px;
   }
+
+
 }

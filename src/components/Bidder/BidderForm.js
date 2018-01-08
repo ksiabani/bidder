@@ -1,10 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import './BidderForm.css';
-// import TextInput from '../common/TextInput';
-// import SelectInput from '../common/SelectInput';
 
-const CourseForm = (props) => {
+const BidderForm = (props) => {
     return (
         <div className="bidders">
             <i className="icon design_code x3 bidders__icon"/>
@@ -14,20 +12,42 @@ const CourseForm = (props) => {
                 <span>Bidder 1</span>
             </div>
             <form className="bidder-form">
-                <div className="bidder-form__input">
-                    <label className="title-label" htmlFor="name"> Bidder name</label>
-                    <input value={props.bidder.name} name="name" type="text" placeholder="TYPE BIDDER'S NAME HERE" className="bottom-spacing-half-x"/>
+                <div className="bidder-form__input-group">
+                    <div className="bidder-form__input">
+                        <label className="title-label" htmlFor="name"> Bidder name</label>
+                        <input
+                            value={props.bidder.name}
+                            name="name"
+                            type="text"
+                            placeholder="TYPE BIDDER'S NAME HERE"
+                            onChange={props.onChange}
+                        />
+                    </div>
+                    <div className="bidder-form__input">
+                        <label className="title-label" htmlFor="endpoint"> Endpoint URL</label>
+                        <input
+                            value={props.bidder.endpoint}
+                            name="endpoint"
+                            type="text"
+                            placeholder="TYPE ENDPOINT URL HERE"
+                            onChange={props.onChange}
+                        />
+                    </div>
                 </div>
-                <div className="bidder-form__input">
-                    <label className="title-label" htmlFor="endpoint"> Endpoint URL</label>
-                    <input value={props.bidder.endpoint} name="endpoint" type="text" placeholder="TYPE ENDPOINT URL HERE" />
-                </div>
+                <hr/>
+                <button
+                    type="submit"
+                    // disabled={saving}
+                    // value={saving ? 'Saving...' : 'Save'}
+                    className="button alert"
+                    onClick={props.onSave}>Save
+                </button>
             </form>
         </div>
     );
 };
 
-CourseForm.propTypes = {
+BidderForm.propTypes = {
     // course: React.PropTypes.object.isRequired,
     // allAuthors: React.PropTypes.array,
     // onSave: React.PropTypes.func.isRequired,
@@ -36,4 +56,4 @@ CourseForm.propTypes = {
     // errors: React.PropTypes.object
 };
 
-export default CourseForm;
+export default BidderForm;
