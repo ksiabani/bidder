@@ -9,26 +9,26 @@ const Menu = () => (
                 {/* Menu responsive button (with animation)*/}
                 <button className="side-menu-layout__menu__mobile-trigger"><i/></button>
                 {/* Link to main page */}
-                <a href="./link/to/root">
+                <Link to='/'>
                     <img width={120}
                          src="https://s3.amazonaws.com/avocarrot-style-guide/4.0/images/avocarrot-skin/logo/full-light.png"
                          alt="Logo"/>
-                </a>
+                </Link>
             </header>
             {/* Navigation Content */}
             <nav>
                 <ul>
                     <li>
-                        <a href="#">
+                        <Link to='/'>
                             <i className="icon location_world"/>
                             <span>INVENTORY</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
-                        <a href="#">
+                        <Link to='/'>
                             <i className="icon files_single-content-03"/>
                             <span>REPORTING</span>
-                        </a>
+                        </Link>
                     </li>
                     <li>
                         <Link to='/bidders'>

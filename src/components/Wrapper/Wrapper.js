@@ -1,23 +1,24 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import Menu from '../Menu/Menu';
-import Bidders from '../Bidders/Bidders';
+import Bidders from '../Bidder/Bidders';
 import './Wrapper.css';
+import EditBidder from "../Bidder/EditBidder";
 
 const Wrapper = () => (
 
     <div className="side-menu-layout__container">
         {/* Menu */}
-        <Menu />
+        <Menu/>
         {/* Content Wrapper */}
         <div className="side-menu-layout__content-wrapper">
             {/* Header */}
             <div className="side-menu-layout__header side-menu-layout__header--bidder">
-                <h3> Bidders </h3>
+                <h3> BIDDERS </h3>
                 <div className="dropdown">
                     <div className="dropdown-trigger dropdown-trigger--icon">
                         <button type="button">
-                            <i className="icon users_circle-08 x3" />
+                            <i className="icon users_circle-08 x3"/>
                         </button>
                     </div>
                 </div>
@@ -26,7 +27,8 @@ const Wrapper = () => (
             <div className="side-menu-layout__content">
                 <Switch>
                     <Route exact path='/' component={Bidders}/>
-                    <Route path='/bidders' component={Bidders}/>
+                    <Route exact path='/bidders' component={Bidders}/>
+                    <Route exact path='/bidders/:id/edit' component={EditBidder}/>
                 </Switch>
             </div>
         </div>
