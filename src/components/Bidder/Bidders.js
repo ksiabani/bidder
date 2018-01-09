@@ -2,7 +2,7 @@ import React from 'react';
 import BidderList from './BidderList';
 import Loader from '../Loader/Loader';
 import './Bidders.css';
-import api from '../../api';
+import Api from '../../api';
 
 class Bidders extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class Bidders extends React.Component {
 
     componentDidMount() {
         this.setState({isLoading: true});
-        api.all().then(data => {
+        Api.all().then(data => {
             this.setState({
                 bidders: data,
                 isLoading: false

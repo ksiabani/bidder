@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router-dom';
 import BidderForm from './BidderForm';
-import api from '../../api';
+import Api from '../../api';
 
 class EditBidder extends React.Component {
     constructor(props) {
@@ -16,7 +16,7 @@ class EditBidder extends React.Component {
     }
 
     componentWillMount() {
-        if(!this.state.bidder){
+        if (!this.state.bidder) {
             this.props.history.push('/bidders');
         }
     }
@@ -31,21 +31,20 @@ class EditBidder extends React.Component {
     saveBidder(event) {
         event.preventDefault();
         this.setState({isSaving: true});
-        const formData = new FormData();
-        formData.append('name', this.state.name);
-        formData.append('endpoint', this.state.endpoint);
-        api.put(this.props.match.params.id, formData)
+        const data = {
+            name: this.state.bidder.name,
+            endpoint: this.state.bidder.endpoint
+        };
+        Api.put(this.props.match.params.id, data)
             .then(json => {
-                // console.log(json);
                 this.setState({isSaving: false});
                 this.props.history.push('/bidders')
-            })
-            .catch(error => error);
+            });
     }
 
     render() {
         const {bidder, isSaving} = this.state;
-        if(this.state.bidder) {
+        if (this.state.bidder) {
             return (
                 <div className="bidders">
                     <i className="icon design_code x3 bidders__icon"/>
