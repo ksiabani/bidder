@@ -61,6 +61,6 @@ const Menu = () => (
             </footer>
         </div>
 
-)
+);
 
 export default Menu
