@@ -3,7 +3,7 @@ import Bidder from './Bidder';
 import './BidderList.css';
 
 const BidderList = (props) => (
-    <div className="bidder-list">
+    <div className="bidder-list" data-testid={props.state}>
         <div className="bidder-list__name">{props.name}</div>
         {
             props.bidders
