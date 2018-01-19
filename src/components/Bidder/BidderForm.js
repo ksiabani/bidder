@@ -4,7 +4,7 @@ import './BidderForm.css';
 
 const BidderForm = (props) => {
     return (
-        <form className="bidder-form">
+        <form className="bidder-form" data-testid="bidderForm">
             <div className="bidder-form__input-group">
                 <div className="bidder-form__input">
                     <label className="title-label" htmlFor="name"> Bidder name</label>
@@ -14,6 +14,7 @@ const BidderForm = (props) => {
                         type="text"
                         placeholder="TYPE BIDDER'S NAME HERE"
                         onChange={props.onChange}
+                        data-testid="inputNameBidder"
                     />
                 </div>
                 <div className="bidder-form__input">
@@ -33,7 +34,9 @@ const BidderForm = (props) => {
                 // disabled={saving}
                 // value={saving ? 'Saving...' : 'Save'}
                 className="button alert bidder-form__button"
-                onClick={props.onSave}>
+                onClick={props.onSave}
+                data-testId="bidderSubmitButton"
+            >
                 {props.isSaving ? <Loader /> : 'Save'}
             </button>
         </form>

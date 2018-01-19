@@ -26,7 +26,7 @@ class Bidders extends React.Component {
     render() {
         const {bidders, isLoading} = this.state;
         return (
-            <div className="bidders">
+            <div className="bidders" data-testid="bidders">
                 <i className="icon design_code x3 bidders__icon"/>
                 <div className="bidders__breadcrumbs">
                     <span></span>
