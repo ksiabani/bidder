@@ -1,3 +1,117 @@
+/*------------------------------------*\
+    #TABLE OF CONTENTS
+\*------------------------------------*/
+/**
+ * Bidders...................Bidders area
+ * Bidders header............Bidders area header
+ * Bidders columns...........Bidder containers
+ * Bidders list..............A list of bidders
+ * Bidder....................Bidder card
+ * Bidder form...............Edit bidder form
+ * Bidders...................Bidders wrapper
+ *
+ */
+
+/*------------------------------------*\
+    #Bidders
+\*------------------------------------*/
+
+.bidders {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/*------------------------------------*\
+    #Bidders header
+\*------------------------------------*/
+
+.bidders-header {
+  width: 28vw;
+  margin-bottom: 36px;
+  padding: 0 24px 36px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {
+    padding: 24px;
+  }
+
+  &__title {
+    font-weight: 700;
+  }
+
+  &__breadcrumps {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__link {
+    font-size: 16px;
+    color: #F26735;
+    width: 45%;
+    padding-left: 5%;
+  }
+
+  &__arrow {
+    padding: 0 8px;
+    flex: 1;
+    text-align: center;
+  }
+
+  &__bidder-name {
+    width: 45%;
+    font-weight: 500;
+    padding: 0 10%;
+  }
+
+}
+
+/*------------------------------------*\
+    #Bidders columns
+\*------------------------------------*/
+
+.bidders-cols {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 350px;
+  height: 100%;
+  padding-bottom: 18px;
+}
+
+/*------------------------------------*\
+    #Bidders list
+\*------------------------------------*/
+
+.bidders-list {
+  background: #FBFBFB;
+  margin: 8px;
+  padding: 24px;
+  border: 1px solid #e8e8e8;
+  max-width: 300px;
+  width: 100%;
+  align-self: stretch;
+
+  &__name {
+    color: #383838;
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 12px;
+  }
+}
+
+
+/*------------------------------------*\
+    #Bidder
+\*------------------------------------*/
+
 .bidder {
   display: block;
   background: #fdfdfd;
@@ -58,4 +172,29 @@
     font-weight: 600;
     padding-top: 24px;
   }
+}
+
+/*------------------------------------*\
+    #Bidder form
+\*------------------------------------*/
+
+.bidder-form {
+  width: 100%;
+  text-align: center;
+
+  &__input-group {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  &__input {
+    width: 33%;
+    margin: 24px;
+  }
+
+  &__button {
+    width: 130px;
+  }
+
 }

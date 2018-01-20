@@ -1,6 +1,5 @@
 import React from 'react';
 import Loader from '../Loader/Loader';
-import './BidderForm.css';
 
 const BidderForm = (props) => {
     return (

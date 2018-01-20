@@ -2,8 +2,8 @@ import React from 'react';
 import BidderList from './BidderList';
 import Loader from '../Loader/Loader';
 import BidderHeader from './BidderHeader';
-import './Bidders.css';
 import Api from '../../api';
+import './Bidder.css';
 
 class Bidders extends React.Component {
     constructor(props) {

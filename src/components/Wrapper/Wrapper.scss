@@ -1,4 +1,16 @@
-// A few overrides
+/*------------------------------------*\
+    #TABLE OF CONTENTS
+\*------------------------------------*/
+/**
+ * Overrides.................Styleguide overrides
+ * Custom header.............Header not included in styleguide
+ *
+ */
+
+/*------------------------------------*\
+    #Overrides
+\*------------------------------------*/
+
 .side-menu-layout {
 
   &__header {
@@ -23,7 +35,10 @@
   }
 }
 
-// Custom header
+/*------------------------------------*\
+    #Custom header
+\*------------------------------------*/
+
 .header {
 
   &__text {

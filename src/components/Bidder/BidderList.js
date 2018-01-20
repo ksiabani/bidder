@@ -1,10 +1,9 @@
 import React from 'react';
 import Bidder from './Bidder';
-import './BidderList.css';
 
 const BidderList = (props) => (
-    <div className="bidder-list" data-testid={props.state}>
-        <div className="bidder-list__name">{props.name}</div>
+    <div className="bidders-list" data-testid={props.state}>
+        <div className="bidders-list__name">{props.name}</div>
         {
             props.bidders
                 .filter((bidder) => bidder.state === props.state)

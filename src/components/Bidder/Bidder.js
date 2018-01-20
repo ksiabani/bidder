@@ -1,6 +1,5 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import './Bidder.css';
 
 const Bidder = props => (
     <Link to={{pathname: `/bidders/${props.id}/edit`, bidder: props.bidder}} className="bidder" data-testid="bidder">
