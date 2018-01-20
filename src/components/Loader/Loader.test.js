@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Menu from './Menu';
+import Loader from './Loader';
 
-describe('Menu', () => {
+describe('Loader', () => {
 
     it('renders without crashing', () => {
-        shallow(<Menu />);
+        shallow(<Loader />);
     });
 
 });
