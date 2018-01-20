@@ -163,7 +163,7 @@ describe('Bidder', () => {
             document.querySelector('[data-testid="inputNameBidder"]').value = ''
         });
         await page.type('[data-testid="inputNameBidder"]', 'My Bidder', {delay: 100});
-        await page.click('[data-testId="bidderSubmitButton"]');
+        await page.click('[data-testid="bidderSubmitButton"]');
         await page.waitForSelector('[data-testid="bidders"]')
     })
 });

@@ -35,7 +35,7 @@ const BidderForm = (props) => {
                 // value={saving ? 'Saving...' : 'Save'}
                 className="button alert bidder-form__button"
                 onClick={props.onSave}
-                data-testId="bidderSubmitButton"
+                data-testid="bidderSubmitButton"
             >
                 {props.isSaving ? <Loader /> : 'Save'}
             </button>

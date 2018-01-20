@@ -1,11 +1,37 @@
-.side-menu-layout{
+// A few overrides
+.side-menu-layout {
 
-  &__header{
+  &__header {
 
     &--bidder {
       display: flex;
-      justify-content: space-between;
       padding-right: 42px;
     }
+  }
+
+  &__content-wrapper {
+    height: calc(100vh - 70px);
+    padding: 18px 0;
+  }
+
+  &__content {
+    margin: 0 18px;
+  }
+
+  &__menu ul li a {
+    flex-flow: nowrap;
+  }
+}
+
+// Custom header
+.header {
+
+  &__text {
+    color: #646464;
+    flex: 1;
+    text-align: right;
+    padding: 4px 32px 0 24px;
+    font-weight: 600;
+    font-size: 14px;
   }
 }

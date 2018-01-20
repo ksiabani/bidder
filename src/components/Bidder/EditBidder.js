@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react';
-import {Link} from 'react-router-dom';
 import BidderForm from './BidderForm';
+import BidderHeader from './BidderHeader';
 import Api from '../../api';
 
 class EditBidder extends React.Component {
@@ -47,12 +47,7 @@ class EditBidder extends React.Component {
         if (this.state.bidder) {
             return (
                 <div className="bidders">
-                    <i className="icon design_code x3 bidders__icon"/>
-                    <div className="bidders__breadcrumbs">
-                        <Link to="/bidders">View your bidders</Link>
-                        <i className="icon arrows-1_minimal-right"/>
-                        <span>{bidder.name}</span>
-                    </div>
+                    <BidderHeader bidder={bidder} />
                     <BidderForm
                         onChange={this.updateBidderState}
                         onSave={this.saveBidder}

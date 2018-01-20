@@ -14,7 +14,8 @@ const Wrapper = () => (
         <div className="side-menu-layout__content-wrapper">
             {/* Header */}
             <div className="side-menu-layout__header side-menu-layout__header--bidder">
-                <h3> BIDDERS </h3>
+                <h3 className="header__title"> BIDDERS </h3>
+                <div className="header__text">All data are based on UTC timezone</div>
                 <div className="dropdown">
                     <div className="dropdown-trigger dropdown-trigger--icon">
                         <button type="button">
