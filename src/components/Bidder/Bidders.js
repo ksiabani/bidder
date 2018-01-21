@@ -8,6 +8,8 @@ import './Bidder.css';
 class Bidders extends React.Component {
     constructor(props) {
         super(props);
+
+        // Initialize state
         this.state = {
             bidders: [],
             isLoading: false
@@ -16,6 +18,8 @@ class Bidders extends React.Component {
 
     componentDidMount() {
         this.setState({isLoading: true});
+
+        // Fetch bidders and terminating loading
         Api.all().then(data => {
             this.setState({
                 bidders: data,
@@ -29,6 +33,7 @@ class Bidders extends React.Component {
         return (
             <div className="bidders" data-testid="bidders">
                 <BidderHeader />
+                {/*Depending on isLoading boolean, show loader or lists with bidders*/}
                 <div className="bidders-cols">
                     {isLoading && <Loader />}
                     {!isLoading && <BidderList name={"1. Submitted"} state={"CREATED"} bidders={bidders}/>}
