@@ -28,6 +28,7 @@ const Wrapper = () => (
             <div className="side-menu-layout__content">
                 <Switch>
                     <Route exact path='/' component={Bidders}/>
+                    <Route exact path='/bidder' component={Bidders}/>
                     <Route exact path='/bidders' component={Bidders}/>
                     <Route exact path='/bidders/:id/edit' component={EditBidder}/>
                 </Switch>
