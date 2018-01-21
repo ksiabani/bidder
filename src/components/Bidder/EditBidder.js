@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import BidderForm from './BidderForm';
 import BidderHeader from './BidderHeader';
 import Api from '../../api';
@@ -63,9 +63,5 @@ class EditBidder extends React.Component {
         }
     }
 }
-
-EditBidder.propTypes = {
-    // bidder: PropTypes.object.isRequired,
-};
 
 export default EditBidder;

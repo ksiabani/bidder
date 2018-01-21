@@ -1,22 +1,29 @@
 import React from 'react';
 import Bidder from './Bidder';
+import PropTypes from "prop-types";
 
-const BidderList = (props) => (
-    <div className="bidders-list" data-testid={props.state}>
-        <div className="bidders-list__name">{props.name}</div>
+const BidderList = ({name, state, bidders}) => (
+    <div className="bidders-list" data-testid={state}>
+        <div className="bidders-list__name">{name}</div>
         {
-            props.bidders
-                .filter((bidder) => bidder.state === props.state)
+            bidders
+                .filter((bidder) => bidder.state === state)
                 .map((bidder) => <Bidder
                     key={bidder.id}
                     id={bidder.id}
                     bidder={bidder}
                     name={bidder.name}
                     endpoint={bidder.endpoint}
-                    action={props.state === "LIVE" ? "Check your bidder" : "Validate your bidder"}
+                    action={state === "LIVE" ? "Check your bidder" : "Validate your bidder"}
                 />)
         }
     </div>
 );
+
+BidderList.propTypes = {
+    name: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    bidders: PropTypes.array.isRequired
+};
 
 export default BidderList;

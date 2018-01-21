@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Bidder from "./Bidder";
+import PropTypes from "prop-types";
 
 const Breadcrumps = ({bidder}) => (
     <div className="bidders-header">
@@ -14,5 +16,9 @@ const Breadcrumps = ({bidder}) => (
         }
     </div>
 );
+
+Bidder.propTypes = {
+    bidder: PropTypes.object.isRequired
+};
 
 export default Breadcrumps;

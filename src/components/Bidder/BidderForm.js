@@ -1,54 +1,52 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader';
 
-const BidderForm = (props) => {
+
+const BidderForm = ({onChange, onSave, bidder, isSaving}) => {
     return (
         <form className="bidder-form" data-testid="bidderForm">
             <div className="bidder-form__input-group">
                 <div className="bidder-form__input">
                     <label className="title-label" htmlFor="name"> Bidder name</label>
                     <input
-                        value={props.bidder.name}
+                        value={bidder.name}
                         name="name"
                         type="text"
                         placeholder="TYPE BIDDER'S NAME HERE"
-                        onChange={props.onChange}
+                        onChange={onChange}
                         data-testid="inputNameBidder"
                     />
                 </div>
                 <div className="bidder-form__input">
                     <label className="title-label" htmlFor="endpoint"> Endpoint URL</label>
                     <input
-                        value={props.bidder.endpoint}
+                        value={bidder.endpoint}
                         name="endpoint"
                         type="text"
                         placeholder="TYPE ENDPOINT URL HERE"
-                        onChange={props.onChange}
+                        onChange={onChange}
                     />
                 </div>
             </div>
             <hr/>
             <button
                 type="submit"
-                // disabled={saving}
-                // value={saving ? 'Saving...' : 'Save'}
                 className="button alert bidder-form__button"
-                onClick={props.onSave}
+                onClick={onSave}
                 data-testid="bidderSubmitButton"
             >
-                {props.isSaving ? <Loader /> : 'Save'}
+                {isSaving ? <Loader /> : 'Save'}
             </button>
         </form>
     );
 };
 
 BidderForm.propTypes = {
-    // course: React.PropTypes.object.isRequired,
-    // allAuthors: React.PropTypes.array,
-    // onSave: React.PropTypes.func.isRequired,
-    // onChange: React.PropTypes.func.isRequired,
-    // saving: React.PropTypes.bool,
-    // errors: React.PropTypes.object
+    onChange: PropTypes.func.isRequired,
+    onSave: PropTypes.func.isRequired,
+    bidder: PropTypes.object.isRequired,
+    isSaving: PropTypes.bool.isRequired
 };
 
 export default BidderForm;

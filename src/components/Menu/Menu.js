@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {Link} from 'react-router-dom';
 
 const Menu = () => (
@@ -42,16 +42,16 @@ const Menu = () => (
                 <ul>
                     {/* Secondary link */}
                     <li className="side-menu-layout__secondary-link">
-                        <a href="#">
+                        <Link to='/'>
                             <i className="icon icon ui-1_settings-gear-63"/>
                             <span>INTEGRATION</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="side-menu-layout__secondary-link">
-                        <a href="#">
+                        <Link to='/'>
                             <i className="icon icon travel_info"/>
                             <span>TUTORIALS</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </nav>
@@ -63,4 +63,4 @@ const Menu = () => (
 
 );
 
-export default Menu
+export default Menu;

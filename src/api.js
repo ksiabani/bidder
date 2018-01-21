@@ -34,7 +34,6 @@ class Api {
     }
 
     static put(id, data) {
-        console.log(data);
         return fetch(`${constants.API}/${id}`, {
             method: 'PUT',
             body: JSON.stringify(data),
