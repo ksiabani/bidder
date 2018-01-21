@@ -8,8 +8,6 @@ import App from './App';
 const biddersRoute = 'http://localhost:3000/bidders';
 const biddersMockCreated = constants.biddersMock.filter(bidder => bidder.state === "CREATED");
 const biddersMockLive = constants.biddersMock.filter(bidder => bidder.state === "LIVE");
-const viewportWidth = 1366;
-const viewportHeight = 900;
 
 let page;
 let browser;
@@ -17,7 +15,7 @@ let browser;
 beforeAll(async () => {
 
     // Jasmine's default timeout
-    jasmine.DEFAULT_TIMEOUT_INTERVAL= 15000;
+    jasmine.DEFAULT_TIMEOUT_INTERVAL = 20000;
 
     // Catch and mock Fetch calls for Jest
     global.fetch = jest.fn().mockImplementation(() => {
@@ -36,8 +34,7 @@ beforeAll(async () => {
         process.env.REACT_APP_DEBUG === "true"
             ? {
                 headless: false,
-                slowMo: 100,
-                args: [`--window-size=${viewportWidth},${viewportHeight}`]
+                slowMo: 100
             }
             : {}
     );
@@ -58,9 +55,6 @@ beforeAll(async () => {
         }
     });
 
-    // Set viewport dimensions
-    await page.setViewport({width: viewportWidth, height: viewportHeight});
-
     // Visit bidders route
     await page.goto(biddersRoute, {
         waitUntil: 'domcontentloaded'
@@ -74,7 +68,7 @@ describe('App', () => {
         const div = document.createElement('div');
         ReactDOM.render(
             <MemoryRouter>
-                <App />
+                <App/>
             </MemoryRouter>, div);
     });
 
@@ -159,7 +153,5 @@ describe('Bidder', () => {
 
 
 afterAll(async () => {
-    if (!process.env.REACT_APP_DEBUG) {
-        browser.close()
-    }
+    browser.close()
 });
