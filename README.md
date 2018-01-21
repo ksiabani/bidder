@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). **Click [here](https://ksiabani.github.io/reboard) for a live demo.**
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). 
+**For a live demo click [here](https://ksiabani.github.io/bidder).**
 
 
 ## What's inside?
