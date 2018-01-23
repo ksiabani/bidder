@@ -23,7 +23,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Task automation
 
-- Run `npm start` to run development server on `http://localhost:3000/`
+- Run `npm start` (or `yarn start`) to run development server on `http://localhost:3000/`
 - Run `npm run build` builds the app for production to the `build` folder.
 - Run `npm test` to run tests. See the section on running tests below.
 
