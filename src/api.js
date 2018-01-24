@@ -53,6 +53,27 @@ class Api {
                 throw new Error('fetch failed' + error);
             });
     }
+
+    static login(data) {
+        return fetch(`${constants.API}/login`, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((response) => {
+                if(response.ok) {
+                    return response.json();
+                } else {
+                    console.log('Fetch failed with status:', response.statusText);
+                }
+            })
+            .catch((error) => {
+                throw new Error('fetch failed' + error);
+            });
+    }
 }
 
 export default Api;
