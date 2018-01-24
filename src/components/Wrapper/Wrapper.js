@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import Menu from '../Menu/Menu';
 import Bidders from '../Bidder/Bidders';
 import './Wrapper.css';
@@ -26,13 +26,9 @@ const Wrapper = () => (
             </div>
             {/* Content */}
             <div className="side-menu-layout__content">
-                {/*Routing is done here*/}
-                <Switch>
-                    <Route exact path='/' component={Bidders}/>
-                    <Route exact path='/bidder' component={Bidders}/>
-                    <Route exact path='/bidders' component={Bidders}/>
-                    <Route exact path='/bidders/:id/edit' component={EditBidder}/>
-                </Switch>
+                <Route exact path='/bidder' component={Bidders}/>
+                <Route exact path='/bidders' component={Bidders}/>
+                <Route exact path='/bidders/:id/edit' component={EditBidder}/>
             </div>
         </div>
     </div>
